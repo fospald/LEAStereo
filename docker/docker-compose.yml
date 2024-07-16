@@ -1,0 +1,14 @@
+services:
+  leastereo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true        # Docker run -t
+    privileged: true
+    network_mode: "host"
+    volumes: # Mount relevant folders into container
+      - ../.:/code/leastereo
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+     - NVIDIA_DRIVER_CAPABILITIES=all
+    runtime: nvidia

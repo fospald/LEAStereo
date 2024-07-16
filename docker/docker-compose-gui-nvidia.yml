@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  leastereo:
+    extends:
+      file: docker-compose-gui.yml
+      service: leastereo
+    environment:
+     - NVIDIA_VISIBLE_DEVICES=all
+     - NVIDIA_DRIVER_CAPABILITIES=all
+     - CUDA_VISIBLE_DEVICES=0
+    runtime: nvidia
